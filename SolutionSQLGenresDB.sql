@@ -1,11 +1,11 @@
 create table if not exists GenresList (
 	id SERIAL primary key,
-	name varchar(80)
+	name varchar(80) not null
 );
 
 create table if not exists ArtistsList (
 	id SERIAL primary key,
-	name varchar(80)
+	name varchar(80) not null
 );
 
 create table if not exists GenresArtists (
@@ -16,8 +16,8 @@ create table if not exists GenresArtists (
 
 create table if not exists AlbumsList (
 	id SERIAL primary key,
-	release_year integer,
-	name varchar(80)
+	release_year integer not null,
+	name varchar(80) not null
 );
 
 create table if not exists AlbumsArtists (
@@ -28,16 +28,16 @@ create table if not exists AlbumsArtists (
 
 create table if not exists TracksList (
 	id SERIAL primary key,
-	album_id integer,
-	duration time,
-	name varchar(80),
+	album_id integer not null,
+	duration time not null,
+	name varchar(80) not null,
 	foreign key (album_id) references AlbumsList(id)
 );
 
 create table if not exists CollectionsList (
 	id SERIAL primary key,
-	release_year integer,
-	name varchar(80)
+	release_year integer not null,
+	name varchar(80) not null
 );
 
 create table if not exists CollectionsTracks (
